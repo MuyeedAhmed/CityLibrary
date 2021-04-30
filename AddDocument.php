@@ -71,11 +71,11 @@
             	<table class=" table table-striped table-hover">
                     <tr>
                     	<td>Title</td> 
-                    	<td><input type="text" name="title"></td>
+                    	<td><input type="text" name="title" required></td>
                     </tr>
                     <tr>
                     	<td>Publication Date</td>	
-                    	<td><input type="Date" name="pdate"></td>
+                    	<td><input type="Date" name="pdate" required></td>
                     </tr>
                     <tr>
                     	<td>Publisher</td>	
@@ -97,11 +97,11 @@
                     </tr>
                     <tr>
                     	<td>ISBN</td> 
-                    	<td><input type="text" name="isbn"></td>
+                    	<td><input type="text" name="isbn" required></td>
                     </tr>
                     <tr>
                     	<td>Authors <em>(If there are multiple authors, put a "," between them)</em></td> 
-                    	<td><input type="text" name="authors"></td>
+                    	<td><input type="text" name="authors" required></td>
                     </tr>
                     <tr>
                     	<td colspan="2" ><input type="submit" name="submitBook" class="btn btn-success btn-block"></td>
@@ -115,11 +115,11 @@
                     <table class=" table table-striped table-hover">
                     <tr>
                     	<td>Title</td> 
-                    	<td><input type="text" name="title" style="width: 99%"></td>
+                    	<td><input type="text" name="title" style="width: 99%" required></td>
                     </tr>
                     <tr>
                     	<td>Publication Date</td>	
-                    	<td><input type="Date" name="pdate" style="width: 99%"></td>
+                    	<td><input type="Date" name="pdate" style="width: 99%" required></td>
                     </tr>
                     <tr>
                     	<td>Publisher</td>	
@@ -143,11 +143,11 @@
                     </tr>
                     <tr>
                     	<td>Volume#</td> 
-                    	<td><input type="number" name="volume_no" style="width: 99%"></td>
+                    	<td><input type="number" name="volume_no" style="width: 99%" required></td>
                     </tr>
                     <tr>
                     	<td>Editor</td> 
-                    	<td><input type="text" name="editor" style="width: 99%"></td>
+                    	<td><input type="text" name="editor" style="width: 99%" required></td>
                     </tr>
                     <tr>
                     	<td>Journal Issues</td> 
@@ -159,9 +159,9 @@
                     				<th>Guest Editor <em>(If there are multiple guest editos, put a "," between them)</em></th>
                     			</tr>
         	            		<tr>
-        	            			<td><input type="number" name="issue_no1"></td>
-        	            			<td><input type="text" name="scope1"></td>
-        	            			<td><input type="text" name="gedits1" style="width: 98%"></td>
+        	            			<td><input type="number" name="issue_no1" required></td>
+        	            			<td><input type="text" name="scope1" required></td>
+        	            			<td><input type="text" name="gedits1" style="width: 98%" required></td>
         	            		</tr>
         	            		<tr>
         	            			<td><input type="number" name="issue_no2"></td>
@@ -222,11 +222,11 @@
             	<table class=" table table-striped table-hover">
                     <tr>
                     	<td>Title</td> 
-                    	<td><input type="text" name="title"></td>
+                    	<td><input type="text" name="title" required></td>
                     </tr>
                     <tr>
                     	<td>Publication Date</td>	
-                    	<td><input type="Date" name="pdate"></td>
+                    	<td><input type="Date" name="pdate" required></td>
                     </tr>
                     <tr>
                     	<td>Publisher</td>	
@@ -251,15 +251,15 @@
                     </tr>
                     <tr>
                     	<td>Conference Date</td> 
-                    	<td><input type="Date" name="cdate"></td>
+                    	<td><input type="Date" name="cdate" required></td>
                     </tr>
                     <tr>
                     	<td>Conference Location</td> 
-                    	<td><input type="text" name="clocation"></td>
+                    	<td><input type="text" name="clocation" required></td>
                     </tr>
                     <tr>
                     	<td>Conference Chairs <em>(If there are multiple chairs, put a "," between them)</em></td> 
-                    	<td><input type="text" name="chairs"></td>
+                    	<td><input type="text" name="chairs" required></td>
                     </tr>
                     <tr>
                     	<td colspan="2" ><input type="submit" name="submitConference" class="btn btn-success btn-block"></td>        	
@@ -326,7 +326,8 @@
 		        $pid = insertPerson($conn, $author);
 		        //Insert new author into author table
 		        insertAuthor($conn, $pid, $docid);
-		        echo "A new author \"".$author."\"was added in the PERSON table.";
+                echo "<br><br><div class=\"alert alert-success\">A new author \"".$author."\" was added in the PERSON table.</div>";
+		        //echo "A new author \"".$author."\"was added in the PERSON table.";
 	        }		
 		}
         $conn->close();
@@ -358,7 +359,8 @@
 		        $pid = insertPerson($conn, $chair);
 		        //Insert new chair into chair table
 		        insertChair($conn, $pid, $docid);
-		        echo "A new chair \"".$chair."\"was added in the PERSON table.";
+                echo "<br><br><div class=\"alert alert-success\">A new chair \"".$chair."\" was added in the PERSON table.</div>";
+		        //echo "A new chair \"".$chair."\"was added in the PERSON table.";
 	        }		
 		}
         $conn->close();
@@ -379,7 +381,8 @@
         	//Insert into Person Table
 	        $editorPID = insertPerson($conn, $editor);
 	        //Insert new editor into chair table
-	        echo "A new editor \"".$editor."\"was added in the PERSON table.";
+	        echo "<br><br><div class=\"alert alert-success\">A new editor \"".$editor."\" was added in the PERSON table.</div>";
+            //echo "A new editor \"".$editor."\"was added in the PERSON table.";
         }
         //Insert to Journal Volume Table
         $query2 = "INSERT INTO JOURNAL_VOLUME (DOCID, VOLUME_NO, EDITOR)
@@ -414,7 +417,8 @@
 			        $pid = insertPerson($conn, $gedit);
 			        //Insert new gedit into gedit table
 			        insertGedits($conn, $docid, $_POST['issue_no'.$i.''], $pid);
-			        echo "A new gedit \"".$gedit."\"was added in the PERSON table.";
+                    echo "<br><br><div class=\"alert alert-success\">A new gedit \"".$gedit."\" was added in the PERSON table.</div>";
+			        //echo "A new gedit \"".$gedit."\"was added in the PERSON table.";
 		        }		
 			}
 		}

@@ -50,7 +50,7 @@
    	     <span class="form-group col-sm-8" id="searchDoc">       
 	        <form action="searchDocumentAdmin.php" method="post" name="searchDocument">
 	        	<div class="form-group">
-	        		<input class="form-control col-sm-8" type="text" name="searchTerm" placeholder="Search by ID or Publisher Name or Title">
+	        		<input class="form-control col-sm-8" type="text" name="searchTerm" placeholder="Search by ID or Publisher Name or Title" required>
 	        		<br><br>
 	        		<input  class="btn btn-success btn-block" type="submit" name="submitSearch" value="Search">
 	        	</div>

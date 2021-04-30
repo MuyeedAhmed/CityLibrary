@@ -41,47 +41,50 @@
     <br><br><br>
 
     <div class="container">
+        <div class="row">
+            <h2 class="jumbotron text-center">Add Reader</h2>
+        </div>
         <form action="ReaderAdd.php" method="post" name="readerAdd">
             
             <div class="form-group">
             <label>Reader Type:</label>
-            <input type="text" name="rtype" class="form-control" placeholder="Enter Reader Type">
+            <input type="text" name="rtype" class="form-control" placeholder="Enter Reader Type" required>
             </div>
             <div class="form-group">
             <label>Name:</label>
-            <input type="text" name="rname" class="form-control" placeholder="Enter Name">
+            <input type="text" name="rname" class="form-control" placeholder="Enter Name" required>
             </div>
             <div class="form-group">
             <label>Address:</label>
-            <input type="text" name="raddress" class="form-control" placeholder="Enter Address">
+            <input type="text" name="raddress" class="form-control" placeholder="Enter Address" required>
             </div>
             <div class="form-group">
             <label>Phone Number:</label>
-            <input type="number" name="phone" class="form-control" placeholder="Enter Phone Number">
+            <input type="number" name="phone" class="form-control" placeholder="Enter Phone Number" required>
             </div>
 
 
             <input type="submit" name="readerAdd" name="Add" class="btn btn-info btn-block">
         </form>
     
-    <?php
-        if (isset($_POST['readerAdd'])) {
-            include_once "connection.php";
-            $reader_type = $_POST['rtype'];
-            $reader_name = $_POST['rname'];
-            $reader_address = $_POST['raddress'];
-            $number = $_POST['phone'];
-            
-            $query = "INSERT INTO READER (RTYPE, RNAME, RADDRESS, PHONE_NO)
-            VALUES ('".$reader_type."', '".$reader_name."', '".$reader_address."', '".$number."')";
-            if ($conn->query($query) === TRUE) {
-                echo "<br><br><div class=\"alert alert-success\">New record created successfully with Reader ID: ".$conn->insert_id."</div>";
-            } else {
-                echo "<br><br><div class=\"alert alert-danger\">Error</div>";
+        <?php
+            if (isset($_POST['readerAdd'])) {
+                include_once "connection.php";
+                $reader_type = $_POST['rtype'];
+                $reader_name = $_POST['rname'];
+                $reader_address = $_POST['raddress'];
+                $number = $_POST['phone'];
+                
+                $query = "INSERT INTO READER (RTYPE, RNAME, RADDRESS, PHONE_NO)
+                VALUES ('".$reader_type."', '".$reader_name."', '".$reader_address."', '".$number."')";
+                if ($conn->query($query) === TRUE) {
+                    echo "<br><br><div class=\"alert alert-success\">New record created successfully with Reader ID: ".$conn->insert_id."</div>";
+                } else {
+                    echo "<br><br><div class=\"alert alert-danger\">Error</div>";
+                }
+                $conn->close();
             }
-            $conn->close();
-        }
-    ?>
+        ?>
 
     </div>
 </body>

@@ -53,7 +53,7 @@
                         <label>Admin Password:</label>
                         <input type="password" name="adpass" class="form-control" placeholder="Enter Password">
                     </div>
-                    <br><br>
+                    
                     <input type="submit" name="adminLogin" class="btn btn-info btn-block">
                 </form>
              </span>

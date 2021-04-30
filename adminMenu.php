@@ -147,7 +147,7 @@
 			<tr>
 			<div class='q6'>
 				<form action="adminMenu.php" method="post" name="q6">
-		            <td>Q6: Average fine paid by the borrowers between <input type="date" name="q6s"> and <input type="date" name="q6e"> for each branch.</td>
+		            <td>Q6: Average fine paid by the borrowers between <input type="date" name="q6s" required> and <input type="date" name="q6e" required> for each branch.</td>
 		            <td><input type="submit" name="q6" class="btn btn-info" value="GO"></td>
 				</form>
 			</div>
@@ -309,7 +309,7 @@
 		            }
 		            echo "</table>";
 		        } else {
-		            echo "No such document found.";
+		            echo "<br><br><div class=\"alert alert-warning\">No documents were borrowed that year.</div>";
 		        }
 		        $conn->close();
 		    }
@@ -341,7 +341,7 @@
 		            }
 		            echo "</table>";
 		        } else {
-		            echo "No such document found.";
+		            echo "<br><br><div class=\"alert alert-success\">Readers paid no fine during that period.</div>";
 		        }
 		        $conn->close();
 		    }

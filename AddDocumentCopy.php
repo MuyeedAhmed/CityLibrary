@@ -65,7 +65,7 @@
              <span class="form-group col-sm-8" id="searchForm">       
                 <form action="AddDocumentCopy.php" method="post" name="searchDocument">
                     <div class="form-group">
-                        <input class="form-control col-sm-8" type="text" name="title" placeholder="Enter document name">
+                        <input class="form-control col-sm-8" type="text" name="title" placeholder="Enter document name" required>
                         <br><br>
                         <input  class="btn btn-success btn-block" type="submit" name="search" value="Search">
                     </div>
@@ -78,7 +78,7 @@
     
     
     <span id="addCopyForm" style="display: none;" >
-        <br><br>
+        <br>
         <div class="row">
         <div class="form-group col-sm-4">
         </div>    
@@ -91,7 +91,7 @@
                 </div>
                 <div class="form-group">
                 <label>Copy #:</label>
-                <input type="number" name="copyno" class="form-control" placeholder="Enter Copy #">
+                <input type="number" name="copyno" class="form-control" placeholder="Enter Copy #" required>
                 </div>
                 <div class="form-group">
                 <label>Branch:</label>
@@ -114,9 +114,8 @@
                 </div>
                 <div class="form-group">
                 <label>Position:</label>
-                <input type="text" name="position" class="form-control" placeholder="Enter Position">
+                <input type="text" name="position" class="form-control" placeholder="Enter Position" required>
                 </div>
-                <br><br>
                 <input type="submit" name="submit" class="btn btn-success btn-block">
             </form>
         </span>
@@ -172,7 +171,7 @@
             }
             echo "</table>";
         } else {
-            echo "No such document found.";
+            echo "<br><br><div class=\"alert alert-warning\">No document with that title was found.</div>";
         }
         $conn->close();
     }
